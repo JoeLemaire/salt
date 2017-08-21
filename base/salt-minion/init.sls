@@ -20,6 +20,9 @@ master_conf:
     - mode: 644
     - source: salt://salt-minion/templates/master.conf
 
+hostnamectl status --static > /etc/salt/minion_id
+  cmd.run:
+
 salt_service:
   service.running:
     - name: salt-minion
