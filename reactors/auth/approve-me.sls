@@ -10,8 +10,7 @@
 {% set postdata = data.get('post', {}) %}
 
 {% if postdata.secretkey == "replacethiswithsomethingbetter" %}
-/etc/salt/to_be_approved_minions:
-  file.append: 
-    - text: 
-      - {{ postdata.tgt }}
+accept_new_minion:
+  wheel.key.accept:
+    - match: {{ data['id'] }}
 {% endif %}
