@@ -11,7 +11,7 @@
 {% set postdata = data.get('post', {}) %}
 
 {# Ink server is sending new key -- accept this key #}
-{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('ink') %}
+{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
 minion_add:
   wheel.key.accept:
     - match: {{ data['id'] }}
