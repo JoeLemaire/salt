@@ -12,7 +12,6 @@
 {% if postdata.secretkey == "replacethiswithsomethingbetter" %}
 /etc/salt/to_be_approved_minions:
   file.append: 
-    - name: /etc/salt/to_be_approved_minions
-    - text: | 
-      {{ postdata.tgt }}
+    - text: 
+      - {{ postdata.tgt }}
 {% endif %}
