@@ -10,8 +10,9 @@
 {% set postdata = data.get('post', {}) %}
 
 {% if postdata.secretkey == "replacethiswithsomethingbetter" %}
-file.append: 
-  - name: /etc/salt/to_be_approved_minions
-  - text: | 
-    '{{ postdata.tgt }}'
+/etc/salt/to_be_approved_minions:
+  file.append: 
+    - name: /etc/salt/to_be_approved_minions
+    - text: | 
+      {{ postdata.tgt }}
 {% endif %}
