@@ -8,11 +8,20 @@
 #  curl -H "Accept: application/json" -d tgt='VIPMonitor' -d service="ntpd" -d secretkey="replacethiswithsomethingbetter" -k https://salt.vtinfo.com:9090/hook/services/restart
 #
 
-{% set postdata = data.get('post', {}) %}
+#{% set postdata = data.get('post', {}) %}
 
 {# Ink server is sending new key -- accept this key #}
-{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
-minion_add:
-  wheel.key.accept:
-    - match: {{ data['id'] }}
-{% endif %}
+#{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
+#minion_add:
+#  wheel.key.accept:
+#    - match: {{ data['id'] }}
+#{% endif %}
+
+
+
+  {# test server is sending new key -- accept this key #}
+  {% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
+  minion_add:
+    wheel.key.accept:
+      - match: {{ data['id'] }}
+  {% endif %}
