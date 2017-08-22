@@ -13,5 +13,5 @@
 file.append: 
   - name: /etc/salt/to_be_approved_minions
   - text: | 
-  '{{ postdata.tgt }}'
+    '{{ postdata.tgt }}'
 {% endif %}
