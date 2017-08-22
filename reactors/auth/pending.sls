@@ -1,4 +1,4 @@
-# This restarts a service on a server
+# This accepts a salt-key request
 # Arguments:
 #  tgt="<server_name>"
 #  service="<service_name>"
@@ -10,10 +10,9 @@
 
 {% set postdata = data.get('post', {}) %}
 
-{% if postdata.secretkey == "replacethiswithsomethingbetter" %}
-restart_services:
-  cmd.service.restart:
-    - tgt: '{{ postdata.tgt }}'
-    - arg:
-      - {{ postdata.service }}
+{# Ink server is sending new key -- accept this key #}
+{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('ink') %}
+minion_add:
+  wheel.key.accept:
+    - match: {{ data['id'] }}
 {% endif %}
