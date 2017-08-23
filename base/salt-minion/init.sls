@@ -23,9 +23,6 @@ master_conf:
 hostnamectl status --static > /etc/salt/minion_id:
   cmd.run
 
-echo {{ pillar['key'] }} > /etc/salt/testkey:
-  cmd.run
-
 salt_service:
   service.running:
     - name: salt-minion
