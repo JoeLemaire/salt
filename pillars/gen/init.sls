@@ -1,3 +1,3 @@
 gen:
-  info: some data
-  info2: some more data
+  user1: Joe Lemaire
+  user2: Joe Lemaire Again
