@@ -1,2 +1,1 @@
-data:
-  info: some data
+info: some data
