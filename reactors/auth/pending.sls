@@ -18,10 +18,12 @@
 #{% endif %}
 
 
+# List of minion public keys to automatically accept:
+{%- set accepted_keys = [ "<removed>"] -%}
 
-  {# test server is sending new key -- accept this key #}
-  {% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
-  minion_add:
-    wheel.key.accept:
-      - match: {{ data['id'] }}
-  {% endif %}
+{% if 'act' in data and data['act'] == 'pend' and data['pub'].strip() in accepted_keys %}
+minion_add:
+  wheel.key.accept:
+    - kwarg:
+        match: {{ data['id'] }}
+{% endif %}
