@@ -21,7 +21,7 @@
 # List of minion public keys to automatically accept:
 {%- set accepted_keys = [ "<removed>"] -%}
 
-{% if 'act' in data and data['act'] == 'pend' and data['pub'].strip() in accepted_keys %}
+{% if 'act' in data and data['act'] == 'pend' %}
 minion_add:
   wheel.key.accept:
     - kwarg:
