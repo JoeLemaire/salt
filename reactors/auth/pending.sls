@@ -1,25 +1,12 @@
-# This accepts a salt-key request
+# This accepts a salt-key request automatically
 # Arguments:
-#  tgt="<server_name>"
-#  service="<service_name>"
-#  secretkey="<secret_key>" (see below) 
+#  <none>
 # Example:
-#  This restarts the ntpd service on VIPMonitor
-#  curl -H "Accept: application/json" -d tgt='VIPMonitor' -d service="ntpd" -d secretkey="replacethiswithsomethingbetter" -k https://salt.vtinfo.com:9090/hook/services/restart
-#
-
-#{% set postdata = data.get('post', {}) %}
-
-{# Ink server is sending new key -- accept this key #}
-#{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('VIP') %}
-#minion_add:
-#  wheel.key.accept:
-#    - match: {{ data['id'] }}
-#{% endif %}
-
+#  <none>
+#  
 
 # List of minion public keys to automatically accept:
-{%- set accepted_keys = [ "<removed>"] -%}
+#{%- set accepted_keys = [ "<removed>"] -%}
 
 {% if 'act' in data and data['act'] == 'pend' %}
 minion_add:
