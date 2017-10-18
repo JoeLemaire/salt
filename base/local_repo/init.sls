@@ -15,3 +15,8 @@ rename_epel:
   file.rename:
     - name: /etc/yum.repos.d/epel.repo.old
     - source: /etc/yum.repos.d/epel.repo
+
+yum clean all:
+  {% if grains['os'] == 'CentOS'%}
+  cmd.run
+  {% endif %}
