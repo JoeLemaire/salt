@@ -1,3 +1,3 @@
-base:
-  '*':
+'os:CentOS':
+  -match: grain:
       - salt-minion
