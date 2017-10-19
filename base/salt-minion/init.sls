@@ -1,20 +1,10 @@
-#addrepo_salt:
-#  pkgrepo.managed:
-#    {% if grains['os'] == 'CentOS'%}
-#    - name: saltstack-repo
-#    - humanname: SaltStack repo for Red Hat Enterprise Linux $releasever
-#    - baseurl: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
-#    - enabled: True
-#    - gpgcheck: 1
-#    - gpgkey: https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTSTACK-GPG-KEY.pub
-#    {% endif %}
 
 install_saltminion:
   pkg.installed:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - salt-minion
-      {% endif %}
+    {% endif %}
 
 master_conf:
   file.managed:
