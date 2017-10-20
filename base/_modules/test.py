@@ -3,5 +3,5 @@ import salt
 def __virtual__():
 	return True
 
-def hello()
+def hello():
     return "hello world"
