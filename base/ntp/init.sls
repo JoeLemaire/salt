@@ -5,7 +5,6 @@ install_ntp:
       - ntp
     {% endif %}
 
-{% import 'modules/ipv4.py' as ipv4 %}
 ntp_conf:
   file.managed:
     {%- if ipv4.in_vt %}
