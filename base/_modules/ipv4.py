@@ -17,4 +17,4 @@ def get_eth0():
 	'''
 	Returns the IPv4 IP address
 	'''
-    return __grains__['ip4_interfaces']
+    return __grains__['ip4_interfaces'].eth0[0]
