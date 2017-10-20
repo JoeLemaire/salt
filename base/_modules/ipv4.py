@@ -16,7 +16,7 @@ def get_eth0():
     Returns the IPv4 IP address
     '''
     return __grains__['ip4_interfaces']['eth0']
-
+'''
 def in_vt():
 
     ip = get_eth0
@@ -26,4 +26,4 @@ def in_vt():
     if vt1|vt2 = True:
         return True
     else 
-        return False
+        return False'''
