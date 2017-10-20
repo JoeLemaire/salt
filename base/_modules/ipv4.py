@@ -2,12 +2,12 @@
 '''
 This module will be used to return the IPv4 information, which can then be evaulated by a state file
 '''
-'''from __future__ import absolute_import
-import logging'''
+from __future__ import absolute_import
+import logging
 import salt
 import salt.modules.network
 
-'''LOG = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 __virtualname__ = 'ipv4'''
 
