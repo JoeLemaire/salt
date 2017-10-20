@@ -16,14 +16,14 @@ def get_eth0():
     Returns the IPv4 IP address
     '''
     return __grains__['ip4_interfaces']['eth0']
-'''
+
 def in_vt():
 
-    ip = get_eth0
+    ip = get_eth0()
     vt1 = salt[network.ip_in_subnet](ip,192.168.0.0/16)
     vt2 = salt[network.ip_in_subnet](ip,172.25.250.0/24)
 
-    if vt1|vt2 = True:
+    if vt1 = True or vt2 = True:
         return True
     else 
-        return False'''
+        return False
