@@ -28,7 +28,7 @@ def in_vt():
     vt2 = __salt__['network.ip_in_subnet']('ip',172.25.250.0/24)
     '''
 
-    if __salt__['network.ip_in_subnet'](ip,192.168.0.0/16):
+    if __salt__['network.ip_in_subnet'](ip,'192.168.0.0/16'):
         return True
     elif __salt__['network.ip_in_subnet'](ip,172.25.250.0/24):
         return True
