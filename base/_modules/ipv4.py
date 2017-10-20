@@ -32,7 +32,7 @@ def in_vt():
         return True
     elif __salt__['network.ip_in_subnet'](ip,'172.25.250.0/24'):
         return True
-    else
+    else:
         return False
     '''
     if vt1 = True or vt2 = True:
