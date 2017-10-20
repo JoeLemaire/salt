@@ -7,13 +7,13 @@ install_ntp:
 
 ntp_conf:
   file.managed:
-    {% if ipv4.in_vt %}
+    {%- if ipv4.in_vt %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
     - mode: 644
     - source: salt://ntp/templates/vt_ntp.conf
-    {% elif if ipv4.in_ma %}
+    {%- elif if ipv4.in_ma %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
