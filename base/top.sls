@@ -3,3 +3,4 @@ base:
     - match: grain
     - local_repo
     - salt-minion
+    - ntp
