@@ -13,7 +13,7 @@ ntp_conf:
     - group: root
     - mode: 644
     - source: salt://ntp/templates/vt_ntp.conf
-    {%- elif if ipv4.in_ma %}
+    {%- elif ipv4.in_ma %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
