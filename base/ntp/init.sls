@@ -7,13 +7,13 @@ install_ntp:
 
 ntp_conf:
   file.managed:
-    {%- if regex_match('192.168.*') in grains['ip4_interfaces'].eth0[0] %}
+    {% if ipv4.in_vt %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
     - mode: 644
     - source: salt://ntp/templates/vt_ntp.conf
-    {%- elif regex_match('172.20.*') in grains['ip4_interfaces'].eth0[0] %}
+    {% elif if ipv4.in_ma %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
