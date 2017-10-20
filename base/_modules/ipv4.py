@@ -1,16 +1,16 @@
-
 '''
 This module will be used to return the IPv4 information, which can then be evaulated by a state file
 '''
 
-'''
-Importing modules:
-Reference: http://intothesaltmine.readthedocs.io/en/latest/chapters/development/writing-modules.html#imports
-'''
 from __future__ import absolute_import
 import logging
 import salt
 import salt.modules.network
+'''
+Importing modules:
+Reference: http://intothesaltmine.readthedocs.io/en/latest/chapters/development/writing-modules.html#imports
+'''
+
 
 LOG = logging.getLogger(__name__)
 
