@@ -23,20 +23,17 @@ def get_eth0():
 def in_vt():
     '''Determines if the server is in VT or not'''
     ip = get_eth0()
-    '''
-    vt1 = __salt__['network.ip_in_subnet']('ip',192.168.0.0/16)
-    vt2 = __salt__['network.ip_in_subnet']('ip',172.25.250.0/24)
-    '''
-
     if __salt__['network.ip_in_subnet'](ip,'192.168.0.0/16'):
         return True
     elif __salt__['network.ip_in_subnet'](ip,'172.25.250.0/24'):
         return True
     else:
         return False
-    '''
-    if vt1 = True or vt2 = True:
+
+def in_ma():
+    '''Determines if the server is in VT or not'''
+    ip = get_eth0()
+    if __salt__['network.ip_in_subnet'](ip,'172.20.0.0/16'):
         return True
-    else 
+    else:
         return False
-    '''
