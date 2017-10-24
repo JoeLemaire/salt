@@ -5,15 +5,16 @@ install_ntp:
       - ntp
     {% endif %}
 
+{% from '_modules/ip4.py' import test with context %}
 ntp_conf:
   file.managed:
-    {%- if ipv4.in_vt %}
+    {%- if salt['ipv4.in_vt'] %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
     - mode: 644
     - source: salt://ntp/templates/vt_ntp.conf
-    {%- elif ipv4.in_ma %}
+    {%- elif salt['ipv4.in_ma'] %}
     - name: /etc/ntp.conf
     - user: root
     - group: root
