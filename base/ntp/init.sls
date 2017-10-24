@@ -5,7 +5,7 @@ install_ntp:
       - ntp
     {% endif %}
 
-{% from '_modules/ip4.py' import test with context %}
+#{% from '_modules/ip4.py' import test with context %}
 ntp_conf:
   file.managed:
     {%- if salt['ipv4.in_vt'] %}
