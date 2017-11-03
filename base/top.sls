@@ -2,5 +2,7 @@ base:
   'os:Centos':
     - match: grain
     - local_repo
-    - salt-minion
+    - locate
     - ntp
+    - salt-minion
+    - snmp
