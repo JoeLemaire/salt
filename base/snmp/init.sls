@@ -27,3 +27,5 @@ snmpd_service:
   service.running:
     - name: snmpd
     - enable: True
+    - watch:
+      - file: /etc/snmp/snmpd.conf

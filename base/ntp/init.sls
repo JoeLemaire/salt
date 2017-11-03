@@ -23,5 +23,7 @@ ntp_conf:
 
 ntp_service:
   service.running:
-    - name: ntp
+    - name: ntpd
     - enable: True
+    - watch:
+      - file: /etc/ntp.conf
