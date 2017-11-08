@@ -15,6 +15,6 @@ enabled=1
 [VIP_Extras]
 name=CentOS-$releasever Local - Extras
 baseurl=http://VTIntITRepo1.vtinfo.com/centos/$releasever/extras/$basearch
-gpgcheck=1
+gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-$releasever
 enabled=1
