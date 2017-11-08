@@ -5,7 +5,7 @@ install_mlocate:
       - mlocate
     {% endif %}
 
- updatedb:
+updatedb:
   {% if grains['os'] == 'CentOS'%}
   cmd.run
   {% endif %}
