@@ -4,7 +4,7 @@ install_packages:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - mlocate
-      - vim
+      - vim-enhanced
       - htop
       - tcpdump
       - wget
