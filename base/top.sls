@@ -6,3 +6,4 @@ base:
     - ntp
     - salt-minion
     - snmp
+    - haproxy
