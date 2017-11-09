@@ -24,8 +24,11 @@ update_conf_cert:
     {% endif %}
 
 haproxy_service:
+  pkg.installed: []
   service.running:
     - name: haproxy
     - enable: True
     - watch:
       - file: /etc/haproxy/haproxy.cfg
+    - require:
+      - pkg: haproxy
