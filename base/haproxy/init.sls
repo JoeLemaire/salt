@@ -19,7 +19,7 @@ update_conf_cert:
   file.replace:
     {% if grains['os'] == 'CentOS'%}
     - name: /etc/haproxy/haproxy.cfg
-    - pattern: "\/ssl_2015\/star_vtinfo_com.pem"
+    - pattern: "/ssl_2015/star_vtinfo_com.pem"
     - repl: "/ssl_cert/star_vtinfo_com_2015.pem"
     {% endif %}
 
