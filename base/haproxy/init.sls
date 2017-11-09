@@ -30,4 +30,4 @@ haproxy_service:
     - watch:
       - file: /etc/haproxy/haproxy.cfg
     - require:
-      - pkg: haproxy
+      - pkgs: haproxy
