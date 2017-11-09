@@ -7,6 +7,6 @@ base:
     - salt-minion
     - snmp
 
-  '*RP* and '
+  '*RP* and G@os:Centos':
     - match: compound
     - haproxy

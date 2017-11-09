@@ -1,10 +1,15 @@
+# Install HAProxy
 install_haproxy:
   pkg.installed:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - haproxy
+    - unless:
+      - rpm -q httpd
+      - systemctl status httpd
     {% endif %}
 
+# Install required certs
 ssl_certs:
   file.recurse:
     {% if grains['os'] == 'CentOS'%}
@@ -15,6 +20,7 @@ ssl_certs:
     - source: salt://haproxy/ssl_cert
     {% endif %}
 
+# Update existing config (if needed) with new certs
 update_conf_cert:
   file.replace:
     {% if grains['os'] == 'CentOS'%}
@@ -23,6 +29,7 @@ update_conf_cert:
     - repl: "/ssl_cert/star_vtinfo_com_2015.pem"
     {% endif %}
 
+# Reload service if conf file changed
 haproxy_service:
   service.running:
     - name: haproxy
