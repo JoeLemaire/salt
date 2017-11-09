@@ -27,7 +27,6 @@ haproxy_service:
   service.running:
     - name: haproxy
     - enable: True
+    - reload: True
     - watch:
       - file: /etc/haproxy/haproxy.cfg
-    - require:
-      - pkgs: haproxy
