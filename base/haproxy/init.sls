@@ -24,7 +24,8 @@ update_conf_cert:
     {% endif %}
 
 haproxy_service:
-  pkg.installed: []
+  pkg.installed:
+    - pkg: haproxy
   service.running:
     - name: haproxy
     - enable: True
