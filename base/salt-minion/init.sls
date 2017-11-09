@@ -19,6 +19,8 @@ master_conf:
 hostnamectl status --static > /etc/salt/minion_id:
   {% if grains['os'] == 'CentOS'%}
   cmd.run
+    - unless:
+      - ls /etc/salt/minion_id
   {% endif %}
 
 salt_service:
