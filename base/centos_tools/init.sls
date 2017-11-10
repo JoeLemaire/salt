@@ -14,6 +14,6 @@ install_packages:
 run_updatedb:
   cmd.run:
     - name: updatedb
-    - unless: which locate
+    - onlyif: which locate
     - creates: /var/lib/mlocate/mlocate.db
     - reload_modules: True
