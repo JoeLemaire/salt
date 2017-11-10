@@ -25,5 +25,6 @@ ntp_service:
   service.running:
     - name: ntpd
     - enable: True
+    - reload: True
     - watch:
       - file: /etc/ntp.conf
