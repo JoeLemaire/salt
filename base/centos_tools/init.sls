@@ -14,7 +14,8 @@ install_mlocate:
   pkg.installed:
     - mlocate
   cmd.run:
-    - name: updatedb
+    - name: 
+      - updatedb
     - require:
       - pkg: mlocate
     - onchanges:
