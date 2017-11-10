@@ -12,10 +12,8 @@ install_packages:
 
 # This updates the local DB that locate uses
 updatedb:
-  {% if grains['os'] == 'CentOS'%}
   cmd.run:
     - require:
       - pkg: mlocate
     - onchanges:
       - pkg: mlocate
-  {% endif %}
