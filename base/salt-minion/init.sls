@@ -25,4 +25,4 @@ salt_service:
     - watch:
       - cmd: set_minion_id
       - file: /etc/salt/minion.d/master.conf
-      - pkg: salt-minion
+      - pkg: install_saltminion
