@@ -18,7 +18,8 @@ master_conf:
 
 hostnamectl status --static > /etc/salt/minion_id:
   cmd.run
-    - creates: /etc/salt/minion_id
+    - unless: |
+    ls /etc/salt/minion_id
 
 salt_service:
   service.running:
