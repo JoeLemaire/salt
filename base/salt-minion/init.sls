@@ -12,8 +12,9 @@ master_conf:
     - mode: 644
     - source: salt://salt-minion/templates/master.conf
 
-hostnamectl status --static > /etc/salt/minion_id:
+set_minion_id:
   cmd.run:
+    - name: hostnamectl status --static > /etc/salt/minion_id
     - creates: /etc/salt/minion_id
 
 salt_service:
@@ -21,6 +22,6 @@ salt_service:
     - name: salt-minion
     - enable: True
     - reload: True
-    - onchanges:
-      - file: /etc/salt/minion_id
+    - watch:
+      - file: set_minion_id
 #      - file: /etc/salt/minion.d/master.conf
