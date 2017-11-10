@@ -4,6 +4,7 @@ install_haproxy:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - haproxy
+      - keepalived
     - unless:
       - rpm -q httpd
       - systemctl status httpd
@@ -18,6 +19,8 @@ ssl_certs:
     - file_mode: 600
     - makedirs: true
     - source: salt://haproxy/ssl_cert
+    - require:
+      - pkg: install_haproxy
     {% endif %}
 
 # Update existing config (if needed) with new certs
@@ -27,6 +30,7 @@ update_conf_cert:
     - name: /etc/haproxy/haproxy.cfg
     - pattern: "/ssl_2015/star_vtinfo_com.pem"
     - repl: "/ssl_cert/star_vtinfo_com_2015.pem"
+    - ignore_if_missing: True     
     {% endif %}
 
 # Reload service if conf file changed
