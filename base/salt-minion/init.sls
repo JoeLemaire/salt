@@ -24,4 +24,5 @@ salt_service:
     - reload: True
     - watch:
       - cmd: set_minion_id
-#      - file: /etc/salt/minion.d/master.conf
+      - file: /etc/salt/minion.d/master.conf
+      - pkg: salt-minion
