@@ -15,4 +15,5 @@ run_updatedb:
   cmd.run:
     - name: updatedb
     - unless: which locate
+    - creates: /var/lib/mlocate/mlocate.db
     - reload_modules: True
