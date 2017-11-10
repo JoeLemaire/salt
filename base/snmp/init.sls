@@ -11,7 +11,7 @@ rename_snmpd:
     {% if grains['os'] == 'CentOS'%}
     - name: /etc/snmp/snmpd.conf.orig
     - source: /etc/snmp/snmpd.conf
-    - create: /etc/snmp/snmpd.conf.orig
+    - unless: /etc/snmp/snmpd.conf.orig
     {% endif %}
 
 snmpd_conf:
