@@ -4,6 +4,7 @@ install_packages:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - vim-enhanced
+      - mlocate
       - htop
       - tcpdump
       - wget
@@ -11,8 +12,6 @@ install_packages:
 
 # This installs mlocate and updates the local DB that locate uses
 install_mlocate:
-  pkg.installed:
-    - mlocate
   cmd.run:
     - name: 
       - updatedb
