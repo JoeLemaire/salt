@@ -17,4 +17,6 @@ rename_epel:
     - source: /etc/yum.repos.d/epel.repo
 
 yum clean all:
-  cmd.run
+  cmd.run:
+    - onchanges:
+      - file: /etc/yum.repos.d/vtviplocalrepo.repo
