@@ -11,7 +11,7 @@ install_packages:
 
 # This installs mlocate and updates the local DB that locate uses
 install_mlocate:
-  pkg.installed: 
+  pkg.installed:
     - mlocate
   cmd.run:
     - name: updatedb
