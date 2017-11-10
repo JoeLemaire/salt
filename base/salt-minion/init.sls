@@ -22,7 +22,9 @@ hostnamectl status --static > /etc/salt/minion_id:
 
 salt_service:
   service.running:
-    {% if grains['os'] == 'CentOS'%}
     - name: salt-minion
     - enable: True
-    {% endif %}
+    - watch:
+      - pkg: salt-minion
+      - file: /etc/salt/minion.d/master.conf
+      - file: /etc/salt/minion_id
