@@ -12,14 +12,16 @@ import salt.modules.yumpkg
 '''
 
 def proxy_type():
-    '''
+    grains = {}
+
     if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):
-        return {'proxy_type':'haproxy'}
+        grains['proxy_type'] = 'haproxy'
+    '''
     elif (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'httpd' and __salt__['pkg.version'] != 'haproxy'):
         return {'proxy_type':'apache'}
     else:
         return {'proxy_type:'natta'}
     '''
-    grains = {}
-    grains['proxy_type'] = 'works'
+
+    
     return grains
