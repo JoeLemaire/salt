@@ -8,6 +8,7 @@ install_packages:
       - htop
       - tcpdump
       - wget
+      - bind-utils
     {% endif %}
 
 # This installs mlocate and updates the local DB that locate uses

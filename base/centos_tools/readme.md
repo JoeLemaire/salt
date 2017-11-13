@@ -7,3 +7,6 @@
 # - runs updatedb to create the initial index
 # - installs vim
 # - installs htop
+# - installs tcpdump
+# - installs wget
+# - installs bind-utils (dig)
