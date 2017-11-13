@@ -16,8 +16,8 @@ def proxy_type():
         return {'proxy_type':'haproxy'}
 #    elif (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'httpd' and __salt__['pkg.version'] != 'haproxy'):
 #        return {'proxy_type':'apache'}
-    else:
-        return {'proxy_type:'n/a'}
+#    else:
+#        return {'proxy_type:'natta'} 
 
 if __name__ == "__main__":
-    print proxy_typ()
+    print proxy_type()
