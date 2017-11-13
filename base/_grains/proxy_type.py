@@ -9,15 +9,20 @@ import logging
 import salt
 import os
 import salt.modules.yumpkg
+import socket
 
 
 def proxy_type():
-    grains = {}
+    hostname = socket.gethostname().upper()
 
+    grains = {}
+    if "RP" in hostname:
+        grains['proxy_type'] = 'haproxy'
+    '''
     #if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):.
     if __grains__['os'] == 'CentOS':
         grains['proxy_type'] = 'haproxy'
-    '''
+
     elif (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'httpd' and __salt__['pkg.version'] != 'haproxy'):
         return {'proxy_type':'apache'}
     else:
