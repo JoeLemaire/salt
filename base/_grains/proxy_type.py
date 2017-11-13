@@ -25,7 +25,7 @@ def proxy_type():
     os_family = _get_os()
 
     grains = {}
-    if os_family = 'CentOS':
+    if os_family == 'CentOS':
         grains['proxy_type'] = 'Centos!'
     '''
     #if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):.
