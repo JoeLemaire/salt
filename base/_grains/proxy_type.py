@@ -7,6 +7,7 @@ Description: This determines whether a reverse proxy is HAProxy-based or Apache-
 from __future__ import absolute_import
 import logging
 import salt
+import os
 import salt.modules.yumpkg
 
 
