@@ -18,3 +18,6 @@ def proxy_type():
 #        return {'proxy_type':'apache'}
     else:
         return {'proxy_type:'n/a'}
+
+if __name__ == "__main__":
+    print proxy_typ()
