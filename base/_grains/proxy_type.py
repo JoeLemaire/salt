@@ -16,7 +16,7 @@ def proxy_type():
     hostname = socket.gethostname().upper()
 
     grains = {}
-    if "RP" in hostname:
+    if "RP5" in hostname:
         grains['proxy_type'] = 'haproxy'
     '''
     #if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):.
