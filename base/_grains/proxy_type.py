@@ -10,9 +10,10 @@ import salt.modules.yumpkg
 
 
 def proxy_type():
-    if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):
+#    if (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'haproxy' and __salt__['pkg.version'] != 'httpd'):
+    if (__grains__['os'] == 'CentOS'):
         return {'proxy_type':'haproxy'}
-    elif (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'httpd' and __salt__['pkg.version'] != 'haproxy'):
-        return {'proxy_type':'apache'}
+#    elif (__grains__['os'] == 'CentOS' and __salt__['pkg.version'] == 'httpd' and __salt__['pkg.version'] != 'haproxy'):
+#        return {'proxy_type':'apache'}
     else:
         return {'proxy_type:'n/a'}
