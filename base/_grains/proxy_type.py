@@ -1,3 +1,4 @@
+#!/usr/bin/python
 '''
 File: # base\_grains\rp_type.py
 Description: This determines whether a reverse proxy is HAProxy-based or Apache-based 
