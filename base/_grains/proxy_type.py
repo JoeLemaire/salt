@@ -12,7 +12,7 @@ import salt.modules.yumpkg
 
 
 def _get_os():
-    return __salt__['grains.get']('os')
+    return salt['grains.get']('os')
 
 def _get_haproxy_ver():
     return __grains__['os']
