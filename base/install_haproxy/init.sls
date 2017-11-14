@@ -15,7 +15,7 @@ install_haproxy:
 
 # Reload service if conf file changed
 
-{% for service in 'haproxy', 'keepalived'%}
+{% for service in 'haproxy', 'keepalived' %}
 restart_service:
   service.running:
     - name: {{ service }}
