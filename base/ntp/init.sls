@@ -21,8 +21,16 @@ ntp_conf:
     - source: salt://ntp/templates/ma_ntp.conf
     {% endif %}
 
-ntp_service:
-  service.running:
+ntp_service_stop:
+  service.dead:
+    - name: ntpd
+    - enable: True
+    - reload: True
+    - watch:
+      - file: /etc/ntp.conf
+
+ntp_service_start:
+  service.dead:
     - name: ntpd
     - enable: True
     - reload: True
