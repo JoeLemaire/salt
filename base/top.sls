@@ -10,3 +10,7 @@ base:
   '*RP* and G@os:Centos':
     - match: compound
     - install_haproxy
+
+  '*LogData* and G@os:Centos'
+    - match: compound
+    - install_elasticsearch
