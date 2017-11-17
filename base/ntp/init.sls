@@ -30,7 +30,7 @@ ntp_service_stop:
       - file: /etc/ntp.conf
 
 ntp_service_start:
-  service.dead:
+  service.running:
     - name: ntpd
     - enable: True
     - reload: True
