@@ -30,6 +30,7 @@ elasticsearch_conf:
     - user: root
     - group: root
     - mode: 644
+    - makedirs: True
     - source: salt://install_elasticsearch/templates/elasticsearch.conf
 
 # This sets the recommended java settings for the elasticsearch service
@@ -61,7 +62,7 @@ sysctl -w vm.max_map_count=262144:
 service.systemctl_reload:
   module.run:
     - onchanges:
-      - file: /etc/systemd/system/unbound.service
+      - file: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
 
 
 elasticsearch_service:
