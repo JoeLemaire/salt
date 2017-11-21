@@ -1,5 +1,3 @@
-{% set env_ipv4 = salt['grains.get']('ipv4:1') -%}
-
 # Install Elasticsearch
 install_elasticsearch:
   pkg.installed:
