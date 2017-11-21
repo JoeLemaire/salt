@@ -65,7 +65,7 @@ sysctl -w vm.max_map_count=262144:
       - grep 262144 /proc/sys/vm/max_map_count
 
 # Perform a daemon-reload
-service.systemctl_reload
+service.systemctl_reload:
   module.run:
     - onchanges:
       - file: /etc/systemd/system/unbound.service
