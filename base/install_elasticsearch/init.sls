@@ -3,6 +3,8 @@ install_elasticsearch:
   pkg.installed:
     - pkgs: 
       - elasticsearch
+      - java-1.8.0-openjdk
+      - curl
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
