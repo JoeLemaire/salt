@@ -6,11 +6,11 @@ install_elasticsearch:
       - java-1.8.0-openjdk
       - curl
 
-
+# Setup elasticsearch environmental variables
 elasticsearch_env:
   file.append:
     - name: /etc/environment
-    - text: export ES_NETWORK_HOST={{ salt['ipv4.get_eth0'] }}
+    - text: ES_NETWORK_HOST={{ salt['ipv4.get_eth0'] }}
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
