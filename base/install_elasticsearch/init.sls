@@ -14,7 +14,7 @@ elasticsearch_yml:
     - source: salt://install_elasticsearch/templates/elasticsearch.yml
 
 # This is all the elasticsearch settings
-elasticsearch_yml:
+log4j2_properties:
   file.managed:
     - name: /etc/elasticsearch/log4j2.properties
     - user: root
