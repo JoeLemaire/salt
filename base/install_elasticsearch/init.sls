@@ -57,13 +57,6 @@ sysctl -w vm.max_map_count=262144:
     - onlyif:
       - grep 262144 /proc/sys/vm/max_map_count
 
-# Configure virtual memory
-# https://www.elastic.co/guide/en/elasticsearch/reference/5.4/vm-max-map-count.html
-sysctl -w vm.max_map_count=262144:
-  cmd.run:
-    - onlyif:
-      - grep 262144 /proc/sys/vm/max_map_count
-
 # Perform a daemon-reload
 service.systemctl_reload:
   module.run:
