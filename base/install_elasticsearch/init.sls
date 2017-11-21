@@ -1,3 +1,5 @@
+{% set env_ipv4 = salt['ipv4.get_eth0'] -%}
+
 # Install Elasticsearch
 install_elasticsearch:
   pkg.installed:
@@ -10,7 +12,7 @@ install_elasticsearch:
 elasticsearch_env:
   file.append:
     - name: /etc/environment
-    - text: ES_NETWORK_HOST={{ salt['ipv4.get_eth0'] }}
+    - text: export ES_NETWORK_HOST={{ env_ipv4 }}
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
