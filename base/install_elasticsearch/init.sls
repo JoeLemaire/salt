@@ -1,4 +1,4 @@
-{% set env_ipv4 = salt['grains.get']('ip4_interfaces',[eth0]) -%}
+{% set env_ipv4 = salt['grains.get']('ip4_interfaces:eth0') -%}
 
 # Install Elasticsearch
 install_elasticsearch:
