@@ -1,4 +1,4 @@
-{% set env_ipv4 = salt['grains.get']('ip4_interfaces:eth0') -%}
+{% set env_ipv4 = salt['grains.get']('ipv4:1') -%}
 
 # Install Elasticsearch
 install_elasticsearch:
@@ -12,7 +12,7 @@ install_elasticsearch:
 elasticsearch_env:
   file.append:
     - name: /etc/environment
-    - text: export ES_NETWORK_HOST={{ env_ipv4 }}
+    - text: export ES_NETWORK_HOST={{ salt['grains.get']('ipv4:1') }}
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
