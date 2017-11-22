@@ -15,7 +15,7 @@
 # Use a descriptive name for your cluster:
 #
 cluster.name: graylog
-#JOE
+#
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
