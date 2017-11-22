@@ -19,9 +19,12 @@
 # Xms represents the initial size of total heap space
 # Xmx represents the maximum size of total heap space
 
+-Xms2g
+-Xmx2g
+
 # Setting heap size as part of the java variables
 # https://www.elastic.co/guide/en/elasticsearch/reference/5.4/heap-size.html
-ES_JAVA_OPTS="-Xms2g -Xmx2g" ./bin/elasticsearch 
+#ES_JAVA_OPTS="-Xms2g -Xmx2g" ./bin/elasticsearch 
 
 ################################################################
 ## Expert settings
