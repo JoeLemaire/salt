@@ -35,6 +35,7 @@ elasticsearch_conf:
     - mode: 644
     - makedirs: True
     - source: salt://install_elasticsearch/templates/elasticsearch.conf
+    - template: jinja
     - defaults:
       net_host: {{ salt['grains.get']('ipv4:1') }}
 
