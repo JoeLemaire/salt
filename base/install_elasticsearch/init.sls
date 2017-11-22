@@ -85,6 +85,6 @@ daemon-reload:
 elasticsearch_restart:
   cmd.run:
     - name: systemctl restart elasticsearch
-    - watch:
+    - onchanges:
       - file: elasticsearch_yml
       - file: elasticsearch_conf

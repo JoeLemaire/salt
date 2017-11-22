@@ -31,5 +31,5 @@ ntp_conf:
 ntpd_restart:
   cmd.run:
     - name: systemctl restart ntpd
-    - watch:
+    - onchanges:
       - file: ntp_conf
