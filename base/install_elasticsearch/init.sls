@@ -94,3 +94,4 @@ elasticsearch_service:
     - reload: True
     - watch:
       - file: /etc/elasticsearch/elasticsearch.yml
+      - file: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
