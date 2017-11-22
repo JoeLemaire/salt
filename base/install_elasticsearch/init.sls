@@ -69,7 +69,7 @@ sysctl -w vm.max_map_count=262144:
 
 # Per https://docs.saltstack.com/en/develop/topics/releases/2017.7.0.html#state-module-changes
 use_superseded:
-  - module.run
+  module.run
 
 # Perform a daemon-reload
 service.systemctl_reload:
