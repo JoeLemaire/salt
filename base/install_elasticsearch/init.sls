@@ -67,13 +67,17 @@ sysctl -w vm.max_map_count=262144:
     - onlyif:
       - grep 262144 /proc/sys/vm/max_map_count
 
+# Per https://docs.saltstack.com/en/develop/topics/releases/2017.7.0.html#state-module-changes
+use_superseded:
+  - module.run
+
 # Perform a daemon-reload
 service.systemctl_reload:
   module.run:
     - onchanges:
       - file: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
 
-
+# Restart the service
 elasticsearch_service:
   service.running:
     - name: elasticsearch
