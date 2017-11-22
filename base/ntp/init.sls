@@ -28,7 +28,7 @@ ntp_conf:
     {% endif %}
 
 # Restart service if ntp.conf file changed
-service_restart:
+ntpd_restart:
   cmd.run:
     - name: systemctl restart ntpd
     - watch:

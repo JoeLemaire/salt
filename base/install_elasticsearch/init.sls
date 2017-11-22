@@ -82,7 +82,7 @@ daemon-reload:
       - file: elasticsearch_conf
 
 # Restart the service if cfg files were updated
-service_restart:
+elasticsearch_restart:
   cmd.run:
     - name: systemctl restart elasticsearch
     - watch:
