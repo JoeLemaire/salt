@@ -80,8 +80,6 @@ service.systemctl_reload:
   module.run:
     - onchanges:
       - file: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
-  use_superseded:
-  - module.run
 
 # Restart the service
 elasticsearch_service:
