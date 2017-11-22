@@ -68,7 +68,12 @@ sysctl -w vm.max_map_count=262144:
       - grep 262144 /proc/sys/vm/max_map_count
 
 # Per https://docs.saltstack.com/en/develop/topics/releases/2017.7.0.html#state-module-changes
-
+use_superseded:
+  file.append:
+    - name: /etc/salt/minion
+    - text: |
+        use_superseded:
+          - module.run
 
 # Perform a daemon-reload
 service.systemctl_reload:
