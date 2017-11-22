@@ -25,7 +25,7 @@ run_updatedb:
 upgrade_packages:
   pkg.latest:
     - pkgs:
-      - ebtables: '<2.0.10-15.el7'
-      - wpa_supplicant: '<1:2.6-5.el7_4.1'
-      - audit: '<2.7.6-3.el7'
+      - ebtables: 2.0.10-15.el7
+      - wpa_supplicant: 1:2.6-5.el7_4.1
+      - audit: 2.7.6-3.el7
     - only_upgrade: True
