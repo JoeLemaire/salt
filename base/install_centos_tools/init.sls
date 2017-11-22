@@ -9,6 +9,7 @@ install_packages:
       - tcpdump
       - wget
       - bind-utils
+      - net-tools
     {% endif %}
 
 # This installs mlocate and updates the local DB that locate uses
