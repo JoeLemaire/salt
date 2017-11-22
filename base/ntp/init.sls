@@ -1,11 +1,16 @@
+# Install ntpd
 install_ntp:
   pkg.installed:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
       - ntp: 4.2.6p5-25.el7.centos.2
     - allow_updates: True
+  service.running:
+    - name: ntpd
+    - enable: True
     {% endif %}
 
+# Push out conf file
 ntp_conf:
   file.managed:
     {%- if salt['ipv4.in_vt'] %}
@@ -22,18 +27,9 @@ ntp_conf:
     - source: salt://ntp/templates/ma_ntp.conf
     {% endif %}
 
-#ntp_service_stop:
-#  service.dead:
-#    - name: ntpd
-#    - enable: True
-#    - reload: True
-#    - watch:
-#      - file: /etc/ntp.conf
-
-ntp_service_start:
-  service.running:
-    - name: ntpd
-    - enable: True
-    - reload: True
+# Restart service if ntp.conf file changed
+service_restart:
+  cmd.run:
+    - name: systemctl restart ntpd
     - watch:
-      - file: /etc/ntp.conf
+      - file: ntp_conf

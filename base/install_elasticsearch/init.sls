@@ -5,7 +5,9 @@ install_elasticsearch:
       - elasticsearch
       - java-1.8.0-openjdk
       - curl
-
+  service.running:
+    - name: elasticsearch
+    - enable: True
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
@@ -72,19 +74,17 @@ use_superseded:
         use_superseded:
           - module.run
 
-# Perform a daemon-reload
+# Perform a daemon-reload if elasticsearch_conf changed
 daemon-reload:
   cmd.run:
     - name: systemctl daemon-reload
     - onchanges:
       - file: elasticsearch_conf
 
-# Restart the service
-elasticsearch_service:
-  service.running:
-    - name: elasticsearch
-    - enable: True
-    - reload: True
+# Restart the service if cfg files were updated
+service_restart:
+  cmd.run:
+    - name: systemctl restart elasticsearch
     - watch:
       - file: elasticsearch_yml
       - file: elasticsearch_conf
