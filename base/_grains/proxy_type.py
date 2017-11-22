@@ -37,7 +37,8 @@ def proxy_type():
         return {'proxy_type':'apache'}
     else:
         return {'proxy_type:'natta'}
-'''
+
 
     
     return grains
+'''
