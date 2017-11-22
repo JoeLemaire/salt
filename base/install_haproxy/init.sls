@@ -1,6 +1,3 @@
-
-
-
 # Install HAProxy
 {% if pkg.version != 'httpd'%}
 install_haproxy:
@@ -14,7 +11,6 @@ install_haproxy:
 {% endif %}
 
 # Reload service if conf file changed
-
 {% for service in 'haproxy', 'keepalived' %}
 restart_service:
   service.running:
