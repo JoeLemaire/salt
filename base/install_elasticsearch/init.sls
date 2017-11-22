@@ -40,7 +40,7 @@ elasticsearch_conf:
 elasticsearch_env:
   file.append:
     - name: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
-    - text: Environment="ES_NETWORK_HOST={{ salt['grains.get']('ipv4:1') }}
+    - text: Environment="ES_NETWORK_HOST={{ salt['grains.get']('ipv4:1') }}"
 
 # This sets the recommended java settings for the elasticsearch service
 jvm_options:
