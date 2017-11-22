@@ -6,11 +6,6 @@ install_elasticsearch:
       - java-1.8.0-openjdk
       - curl
 
-# Setup elasticsearch environmental variables
-elasticsearch_env:
-  file.append:
-    - name: /etc/environment
-    - text: export ES_NETWORK_HOST={{ salt['grains.get']('ipv4:1') }}
 
 # This is all the elasticsearch settings
 elasticsearch_yml:
@@ -40,6 +35,12 @@ elasticsearch_conf:
     - mode: 644
     - makedirs: True
     - source: salt://install_elasticsearch/templates/elasticsearch.conf
+
+# Setup elasticsearch environmental variables
+elasticsearch_env:
+  file.append:
+    - name: /etc/systemd/system/elasticsearch.service.d/elasticsearch.conf
+    - text: Environment="ES_NETWORK_HOST={{ salt['grains.get']('ipv4:1') }}
 
 # This sets the recommended java settings for the elasticsearch service
 jvm_options:
