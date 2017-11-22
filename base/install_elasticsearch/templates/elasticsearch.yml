@@ -51,6 +51,8 @@ bootstrap.memory_lock: true
 # Set the bind address to a specific IP (IPv4 or IPv6):
 #
 network.host: ${ES_NETWORK_HOST}
+network.bind_host: [${ES_NETWORK_HOST}, "127.0.0.1"]
+network.publish_host: ${ES_NETWORK_HOST}
 #
 # Set a custom port for HTTP:
 #
