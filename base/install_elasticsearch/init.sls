@@ -69,7 +69,7 @@ limits_conf:
 # https://www.elastic.co/guide/en/elasticsearch/reference/5.4/_maximum_map_count_check.html
 sysctl -w vm.max_map_count=262144:
   cmd.run:
-    - onlyif:
+    - unless:
       - grep 262144 /proc/sys/vm/max_map_count
 
 # Per https://docs.saltstack.com/en/develop/topics/releases/2017.7.0.html#state-module-changes
