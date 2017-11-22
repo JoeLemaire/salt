@@ -2,7 +2,8 @@ install_ntp:
   pkg.installed:
     {% if grains['os'] == 'CentOS'%}
     - pkgs: 
-      - ntp
+      - ntp: 4.2.6p5-25.el7.centos.2
+    - allow_updates: True
     {% endif %}
 
 ntp_conf:
